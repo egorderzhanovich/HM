@@ -1,33 +1,51 @@
-package HM.main;
+package main;
 
-import HM.aprilNine.callback.CallbackExecutor;
-import HM.aprilNine.callback.Timer;
-import HM.aprilNine.customException.Car;
-import HM.aprilNine.customException.NumberIsEvenException;
-import HM.aprilNine.enums.Alphabet;
-import HM.aprilNine.generics.GenericClass;
-import HM.aprilSixteen.Product;
-import HM.aprilSixteen.SortByPrice;
-import HM.aprilSixteen.Store;
 
-import java.util.Collection;
-import java.util.Collections;
+import aprilTwentythree.firstTask.Palindrrome;
+import aprilTwentythree.fourthTask.Car;
+import aprilTwentythree.secondTask.TextFormatter;
+import aprilTwentythree.thirdTask.Censorship;
+
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Store store = new Store();
-        store.addProduct(new Product(1,"Sugar",115));
-        store.addProduct(new Product(3,"Apple",25));
-        store.addProduct(new Product(2,"Tea",45));
-        store.addProduct(new Product(4,"Chocolate",455));
-        store.addProduct(new Product(1,"Cookies",235));
+        //1
+        File textFile = new File("src/aprilTwentythree/firstTask/textfile");
+        File outputFile = new File("src/aprilTwentythree/firstTask/outputFile");
+        Palindrrome p = new Palindrrome();
+        p.findPalindrome(textFile,outputFile);
 
-        System.out.println(store.getProductList());
-      //  Collections.sort(store.getProductList(),new SortByPrice());
-        //System.out.println(store.getProductList());
-       // store.deleteProduct(4);
-       Collections.reverse(store.getProductList());
-        System.out.println(store.getProductList());
+        //2
+        File textFile1 = new File("src/aprilTwentythree/secondTask/text");
+        File finished = new File("src/aprilTwentythree/secondTask/finished");
+        String[] array = TextFormatter.getSentences(textFile1);
+        TextFormatter.findSentences(array,finished);
+
+        //3
+        File blackList = new File("src/aprilTwentythree/thirdTask/blackList");
+        File textFile3 = new File("src/aprilTwentythree/thirdTask/textFile");
+        Censorship censorship = new Censorship();
+        censorship.createBlackList(blackList);
+        censorship.censorshipCheck(textFile3);
+
+        //4
+        try(ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("src/aprilTwentythree/fourthTask/car.dat"))){
+            Car car = new Car("BMW",300,35000);
+            objectOutputStream.writeObject(car);
+        }catch (IOException e){
+            e.getMessage();
+        }
+
+        try(ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("src/aprilTwentythree/fourthTask/car.dat"))){
+            Car bmw = (Car)objectInputStream.readObject();
+            System.out.println(bmw.toString());
+        }catch (IOException | ClassNotFoundException e){
+            e.getMessage();
+        }
+
     }
+
+
 }
