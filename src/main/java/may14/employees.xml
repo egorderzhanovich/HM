@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hospital SYSTEM "employee.dtd">
+
+<hospital>
+    <employee id="1">
+        <name>Egor Derzhanovich</name>
+        <job>Therapist</job>
+        <department>therapy</department>
+        <workExperience>5</workExperience>
+    </employee>
+    <employee id="2">
+        <name>Egor Derzhanovich</name>
+        <job>Therapist</job>
+        <department>therapy</department>
+        <workExperience>5</workExperience>
+    </employee>
+    <employee id="3">
+        <name>Anna Anna</name>
+        <job>De</job>
+        <department>therapy</department>
+        <workExperience>5</workExperience>
+    </employee>
+    <employee id="4">
+        <name>Egor Derzhanovich</name>
+        <job>Nurse</job>
+        <department>therapy</department>
+        <workExperience>5</workExperience>
+    </employee>
+</hospital>
