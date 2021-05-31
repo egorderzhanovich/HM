@@ -1,0 +1,8 @@
+<!ELEMENT hospital (employee*)>
+        <!ELEMENT employee (name,job,department,workExperience)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT job (#PCDATA)>
+        <!ELEMENT department (#PCDATA)>
+        <!ELEMENT workExperience (#PCDATA)>
+        <!ATTLIST employee id CDATA #REQUIRED>
+

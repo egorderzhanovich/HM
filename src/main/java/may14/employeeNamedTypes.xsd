@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="stringtype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="idtype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="employeetype">
+        <xs:sequence>
+            <xs:element name="name" type="stringtype"/>
+            <xs:element name="job" type="stringtype"/>
+            <xs:element name="department" type="stringtype"/>
+            <xs:element name="workExperience" type="stringtype"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="hospitaltype">
+        <xs:sequence>
+            <xs:element name="employee" maxOccurs="unbounded" type="employeetype"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="idtype" use="required"/>
+    </xs:complexType>
+
+    <xs:element name="hospital" type="hospitaltype"/>
+
+</xs:schema>
